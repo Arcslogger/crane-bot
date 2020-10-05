@@ -37,7 +37,7 @@ async def rough(ctx):
 
 @client.command(aliases=['truck crane'])
 async def truck(ctx):
-    embed = discord.Embed(title='Truck Crane!', colour=discord.Colour.blue())    
+    embed = discord.Embed(title='Truck-Mounted Crane!', colour=discord.Colour.blue())    
     embed.set_image(url='https://cdn.discordapp.com/attachments/708483689780346974/761001636436508682/construction-truck-mounted-crane.png')
     await ctx.send(embed=embed)
 
