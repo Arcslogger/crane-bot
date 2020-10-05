@@ -1,14 +1,18 @@
 import discord
+import json
 from discord.ext import commands
 
 client = commands.Bot(command_prefix = '.')
+
+with open('run.json') as f:
+  token = json.load(f)
 
 @client.event
 async def on_ready():
     print('Hello world!')
     
 @client.command(aliases=['latency', 'ping'])
-async def pong(ctx):
+async def check(ctx):
     embed = discord.Embed(title='Pong!', colour=discord.Colour.blue())    
     embed.add_field(name=f'⌛', value=f'{round(client.latency * 1000)}ms')
     await ctx.send(embed=embed)
@@ -38,4 +42,4 @@ async def truck(ctx):
     await ctx.send(embed=embed)
 
 
-client.run('NzYyNDc1MjAxODkxMjcwNzA3.X3psXg.kVtxJfpUpmoXp7zjOIU2MqoRxuw') 
+client.run(token['token']) 
